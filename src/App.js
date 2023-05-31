@@ -7,8 +7,19 @@ import Navbar from 'react-bootstrap/Navbar';
 import Profile from './Component/Profile';
 class App extends Component {
 
+  state ={
+    showPerson: false,
+    
+  }
+ 
+  handleToggle = () => {
+    this.setState({
+      showPerson: !this.state.showPerson
+    })
+  }
+
   render() {
-   
+  
     return (
      //NAVBAR ET L IMPORTATION DU FICHIER PROFILE DANS L APP
       <div>
@@ -26,7 +37,8 @@ class App extends Component {
       </div>
 
         <div className='prf'>
-         <Profile />
+        <button onClick={this.handleToggle}>show my NEW LIFE</button>
+         {this.state.showPerson?<Profile/>:null}
         </div>
         
       </div>
